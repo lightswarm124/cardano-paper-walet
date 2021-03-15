@@ -1,9 +1,11 @@
 import * as t from './actionTypes';
 
 const initialState = {
-    seed: 'enter your electrum wallet seed here',
-    amount: '0.01 BTC',
+    name: 'giveADA',
+    amount: '1',
     address: 'enter your receiving address here',
+    mnemonic: 'mnemonic phrase - 24 words',
+    occasion: 'happybirthday',
 }
 
 export default function reducer(state = initialState, action) {
@@ -11,11 +13,17 @@ export default function reducer(state = initialState, action) {
         default:
             return state;
 
-        case t.SET_SEED:
-            return { ...state, seed: action.payload };
+        case t.SET_NAME:
+            return { ...state, name: action.payload };
 
         case t.SET_AMOUNT:
             return { ...state, amount: action.payload };
+
+        case t.SET_OCCASION:
+            return { ...state, occasion: action.payload };
+
+        case t.SET_MNEMONIC:
+            return { ...state, mnemonic: action.payload };
 
         case t.SET_ADDRESS:
             return { ...state, address: action.payload };
@@ -24,3 +32,5 @@ export default function reducer(state = initialState, action) {
             return initialState;
     }
 }
+
+// christmas, congratulations, graduation, thank you, new baby, proud of you

@@ -6,14 +6,10 @@ export default class Footer extends PureComponent {
     render() {
         return (<div className="Footer">
             <span>
-                Background picture by <a href="https://wallpapertag.com/bitcoin-wallpapers#753884" rel="noopener noreferrer" target="_blank">wallpapertag.com</a>
-                <br />
-                Not affiliated with the <a href="https://electrum.org" rel="noopener noreferrer" target="_blank">Electrum software</a> or Electrum Technologies GmbH
+                <a href="https://electrum.org" rel="noopener noreferrer" target="_blank">giveADA.com</a> - cryptocurrency giving made fun
             </span>
             <span>
-                Released under the MIT Licence.
-                <br />
-                <a href="https://github.com/Fensterbank/electrum-bitcoin-paper-wallet" rel="noopener noreferrer" target="_blank">View source code on Github</a>
+                Released under the MIT Licence
             </span>
         </div>);
     }

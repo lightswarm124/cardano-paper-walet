@@ -1,44 +1,54 @@
 {
-    "name": "electrum-bitcoin-paper-wallet",
-    "version": "1.0.0",
-    "author": "Frédéric Bolvin <frederic@bol.vin>",
-    "url": "https://github.com/Fensterbank/electrum-bitcoin-paper-wallet",
-    "homepage": "https://fensterbank.github.io/electrum-bitcoin-paper-wallet",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Fensterbank/electrum-bitcoin-paper-wallet.git"
-    },
-    "keywords": [
-        "bitcoin",
-        "electrum",
-        "wallet"
-    ],
-    "dependencies": {
-        "file-saver": "^1.3.3",
-        "office-ui-fabric-react": "^5.58.0",
-        "qrcode.react": "^0.8.0",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
-        "react-redux": "^5.0.7",
-        "react-scripts": "1.1.1",
-        "redux": "^3.7.2",
-        "redux-devtools-extension": "^2.13.2"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
-    },
-    "licenses": [
-        {
-            "name": "MIT",
-            "url": "http://www.opensource.org/licenses/mit-license.php"
-        }
-    ],
-    "devDependencies": {
-        "gh-pages": "^1.1.0"
+  "name": "cardano-ada-paper-wallet",
+  "version": "1.0.0",
+  "homepage": ".",
+  "keywords": [
+    "cardano",
+    "ada",
+    "paper",
+    "wallet"
+  ],
+  "dependencies": {
+    "@emurgo/cardano-serialization-lib-asmjs": "^5.0.0-rc.0",
+    "@material-ui/core": "^4.11.3",
+    "bip39": "^3.0.3",
+    "file-saver": "^2.0.5",
+    "qrcode.react": "^1.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-scripts": "^4.0.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "licenses": [
+    {
+      "name": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
     }
+  ],
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

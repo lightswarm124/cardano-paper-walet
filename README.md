@@ -1,6 +1,6 @@
-# Electrum Bitcoin Paper Wallet
+# Cardano ADA Paper Wallet
 
-This app creates a printable Bitcoin paper wallet based on an [Electrum](https://electrum.org) wallet seed.
+This app creates a printable Cardano ADA paper wallet based on a wallet seed.
 The wallet is rendered in real time using canvas techniques and can be downloaded as PNG.
 
 It's a simple and modern open source web application based on React and Redux.
@@ -8,9 +8,7 @@ The code runs completely on client side and no data will be transferred to any s
 
 ## Usage / Installation
 
-The working version is hosted on Github Pages and can be found [here](https://fensterbank.github.io/electrum-bitcoin-paper-wallet).
-
-But be aware: if you want 100% security, you should never enter your wallet seed on a computer with an internet connection, and especially not on a website.
+This software comes as is, and is not liable for any potential bugs.
 
 Although this app is open source and doesn't want to harm you, your computer may still be infected with viruses and Trojan horses, or malicious browser plug-ins may be just waiting for you to open this app.  
 In addition, anyone can take the code of this app, modify it and host it on a different domain.
@@ -25,10 +23,7 @@ This will install all dependencies to run the app.
 4. Now you are ready. You could could copy the whole folder to your cold storage offline computer.
 5. To run the app locally, open the command line interface and enter `npm run start`.  
 As long as you have nodejs installed, ran `npm install` before and copied the whole directory (including `node_modules`), you could do this on any computer without internet connection.
-
-## Screenshot
-
-![Screenshot](screenshot.png)
+6. (Optional) To deploy the app, open the command line interface and enter `npm run build`. The html file to load the page will reside within the newly created `build` folder in your project folder directory.
 
 ## License
 

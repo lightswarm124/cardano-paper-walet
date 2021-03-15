@@ -82,7 +82,7 @@ class Preview extends PureComponent {
 
 
         this._qrSeedSvg = document.querySelector('#seed svg');
-        this._qrAddressSvg = document.querySelector('#address svg');
+        this._qrAddressSvg = document.querySelector('#mnemonic svg');
 
         this._img.onload = () => this.draw(true);
         this._qrSeedImg.onload = () => this._context.drawImage(this._qrSeedImg, ((this.canvas.width / 3) / 2) - (qrsize / 4), this.canvas.height / 2 - qrsize / 2);
@@ -215,25 +215,26 @@ class Preview extends PureComponent {
         this._context.strokeText('giveADA.com - cryptocurrency giving made fun', this.canvas.width / 2, offset + 15);
     }
 
-    drawAddress = () => {
+    drawMnemonic = () => {
         const offset = 30;
         const width = (this.canvas.width / 3);
         const height = 50;
 
         this._context.fillStyle = 'rgba(255,0,255,0.95)';
-        this._context.fillRect(this.canvas.width - offset - width, offset * 15, width, height);
+        this._context.fillRect(this.canvas.width - offset - width, offset * 15, width, height * 1.5);
 
         this._context.textAlign = 'center';
 
         this._context.fillStyle = 'black';
         this._context.font = '16px Tahoma, "Nimbus Sans"';
         this._context.textBaseline = 'top';
-        this._context.fillText('Receiving Address:', (this.canvas.width - offset - width) + (width / 2), offset * 15 + 5);
+        this._context.fillText('Mnemonic Phrase:', (this.canvas.width - offset - width) + (width / 2), offset * 15 + 5);
 
         this._context.fillStyle = '#000';
         this._context.font = '14px Tahoma, "Nimbus Sans"';
         this._context.textBaseline = 'bottom';
-        this._context.fillText(this.props.address, (this.canvas.width - offset - width) + (width / 2), offset * 16.5);
+        this._context.fillText(this.props.mnemonic.split(' ').slice(0, 12), (this.canvas.width - offset - width) + (width / 2), offset * 16.5, 1000);
+        this._context.fillText(this.props.mnemonic.split(' ').slice(13, 25), (this.canvas.width - offset - width) + (width / 2), offset * 16.5 + 25, 1000);
     }
 
     drawAmount = () => {
@@ -257,7 +258,7 @@ class Preview extends PureComponent {
         this._context.fillText('ADA', width * 2.5 + 95, 120);
     }
 
-    drawQRAddress = () => {
+    drawQRMnemonic = () => {
         const xml = new XMLSerializer().serializeToString(this._qrAddressSvg);
         this._qrAddressImg.src = `data:image/svg+xml;base64,${btoa(xml)}`;
 
@@ -272,12 +273,12 @@ class Preview extends PureComponent {
 
         this.drawCardanoLogo();
         this.drawOccasionsLogo();
-        this.drawAddress();
+        this.drawMnemonic();
         this.drawAmount();
         this.drawOccasion();
         this.drawTitle();
         this.drawName();
-        this.drawQRAddress();
+        this.drawQRMnemonic();
 
         this.redraw = false;
     }
@@ -294,8 +295,8 @@ class Preview extends PureComponent {
     render() {
         return (
             <div className="wallet">
-                <canvas id="canvas" ref={canvas => this.canvas = canvas} width="1544" height="657" />
-                <div className="qrcode" id="address"><QRCode value={this.props.address} renderAs="svg" level="L" size={qrsize} /></div>
+                <canvas id="canvas-private" ref={canvas => this.canvas = canvas} width="1544" height="657" />
+                <div className="qrcode" id="mnemonic"><QRCode value={this.props.mnemonic} renderAs="svg" level="L" size={qrsize} /></div>
             </div>
         );
     }
@@ -306,6 +307,7 @@ const mapStateToProps = state => ({
     amount: wallet.selectors.getAmount(state),
     address: wallet.selectors.getAddress(state),
     occasion: wallet.selectors.getOccasion(state),
+    mnemonic: wallet.selectors.getMnemonic(state),
 });
 
 export default connect(mapStateToProps)(Preview);
